@@ -5,6 +5,10 @@ const port = 8080
 app.use(cors())
 app.use(express.json())
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 const books = [
     {id: 1, name: 'The Last Wish', price: 20.25},

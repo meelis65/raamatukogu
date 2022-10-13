@@ -1,0 +1,57 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "raamatukogu",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/books": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Books"
+                                }
+                            }
+                        },
+                        "description": "Returns list of books"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Books": {
+                "title": "Root Type for Books",
+                "description": "",
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "format": "int32",
+                            "type": "integer"
+                        },
+                        "name": {
+                            "type": "string"
+                        },
+                        "price": {
+                            "format": "double",
+                            "type": "number"
+                        }
+                    }
+                },
+                "example": [
+                    {
+                        "id": 1,
+                        "name": "The Last Wish",
+                        "price": 20.25
+                    }
+                ]
+            }
+        }
+    }
+}
